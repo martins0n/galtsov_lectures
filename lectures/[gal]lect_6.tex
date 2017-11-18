@@ -1,0 +1,247 @@
+\documentclass[a4paper]{article}
+%\usepackage{ifpdf}
+% \usepackage{cmap}
+%  \usepackage[pdftex]{graphic}
+%  \usepackage[unicode=true,colorlinks=true]{hyperref}
+%\else
+%  \usepackage[dvips]{graphicx}  
+%\fi
+%\usepackage{mathtext} &
+\usepackage[14pt]{extsizes}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage {amssymb,amsfonts,enumerate, float,geometry}
+\usepackage {amsmath}
+\usepackage {indentfirst}
+\usepackage{physics}
+%\geometry{left=2cm}
+%\geometry{right=1.5cm}
+%\geometry{top=1cm}
+%\geometry{bottom=2cm}
+\usepackage{graphicx}
+\usepackage{color}
+\renewcommand{\thesection}{\arabic{section}.}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}.}
+%\captiondelim {.~}
+
+\oddsidemargin=1cm
+\textwidth=16cm
+\topmargin=-0.5cm
+\addtolength{\topmargin}{-\headheight}
+\addtolength{\topmargin}{-\headsep}
+\textheight=24.7cm
+
+%\textwidt=16cm
+\begin{document}
+\section{Основы ОТО}
+\textbf{Принцип эквивалентности.} 
+Действие системы, записанное в криволинейных координатах в пространстве Минковсокого $M_{1,3}$($\equiv$ в неинерциальной системе отсчета) совпадает с действием той же системы в гравитационном поле.
+\par
+\textit{Замечание.}
+В уравнениях движения возможно появление  тензора кривизны. Пусть $\xi^a$, $\nu_{ab} \in M_{1,3}.$ Делаем замену: $\xi^a = \xi^a(x^\mu),{~} \mu = 0..3, {~} a= 0..3.$ Тогда $ds^2_{M} = \eta_{ab} d\xi^a d\xi^b \rightarrow ds_{R}^2 = g_{\mu \nu}(x) dx^\mu dx^\nu,$ где интервал пространства Минковского преобретает вид интервала псевдориманнова пространства с метрикой:
+\begin{align} \label{metrika}
+g_{\mu \nu} = \eta_{a b} \frac{\partial \xi^a}{\partial x^\mu} \frac{\partial \xi^b}{\partial x^\nu} \\
+d^4 \xi \rightarrow \sqrt{-g} d^4 x
+\end{align} 
+\textbf{Задача 6.1} 
+Пусть частица движется в $M_{1,3}$ свободно, т.е. $\xi^a = \xi^a_0 + u^a_0 \tau \Leftrightarrow \frac{d^2\xi^a}{d\tau^2} = 0$ и $ \xi^a(\tau) \rightarrow x^\mu(\tau)$. Показать, что в координатах $x^\mu$ : $\frac{d^2 x^\mu}{d \tau^2} + \Gamma^\mu_{\nu \lambda} \dv{x^\mu}{\tau} \dv{x^\lambda}{ \tau} = 0,$ где $\Gamma^\mu_{\nu \lambda}$ по метрике (\ref{metrika}). 
+\par
+\textit{Решение} Используя закон преобразования получим следуюющее уравнение:
+\begin{align}
+\pdv{\xi^a}{x^\mu} \ddot{x^\mu} + 2 (\dv{}{\tau} {\pdv{\xi^a}{x^\mu}} \dot{x^\mu} = \\
+= 2  \pdv{\xi^a}{x^\alpha x^\beta} \dot{x^\alpha} \dot{x^\beta} + \pdv{\xi^a}{x^\mu} \ddot{x^\mu} = 0.
+\end{align}
+
+Дальше, подставляя  (\ref{metrika}) в уравнение приведенное в условие, его можно привести к этому видe.
+\par
+Отличие инерциальных систем отсчета от истинного гравитационного поля в том, что в первом случае $R^\mu{}_{\nu \lambda \tau} = 0$ в любых координатах. Во втором -- можно обратить $g_{\mu \nu}$ в $ \eta_{\mu \nu}$ вдоль любой кривой $\gamma$ всместе с $\Gamma^\mu_{\nu \lambda}$, достаточно выбрать $g_{\mu \nu}(x_0) = e^a_\mu (x_0) e^b_\nu (x_0)\eta_{a b} $ и переносить  тетраду в $x_0$ параллельно вдоль $\gamma$. При этом ортонормированность сохранится, но результат переноса в $x_1$ будет зависеть от пути, если(??) $R^{\mu}_{ {~} \nu \lambda \tau} \neq 0$.
+\par
+\textbf{Задача 6.2}  Показать это:
+\par
+\textbf{Нормальные римановы координаты.} 
+\par 
+В окрестности каждой точки многообразия можно выпустить пучок линейно независимых геодезических и выбрать их в качестве новых координат. Тогда можно показать, что $g_{\mu \nu} = \eta_{\mu \nu} - R^o_{\mu \alpha \beta \nu} y^\alpha y^\beta + \frac{1}{6} \grad_\alpha R^o_{\beta \mu \nu \gamma} y^\alpha y^\beta y^\gamma + ...$
+\par
+\textbf{Задача 6.3}  Показать это:
+\par 
+\textit{Решение} Разложим тензор 2-ранга в окрестности $x_0$ по нормальным координатам, где $y^\alpha(x_0) = 0$, тогда:
+\begin{equation}
+g_{\alpha \beta} = g_{\alpha \beta}(x_0) + \partial_{\gamma} g_{\alpha \beta}(x_0) y^{\gamma} + \frac{1}{2} \partial_{\gamma_1} \partial_{\gamma_2} g_{\alpha \beta}(x_0) y^{\gamma_1} y^{\gamma_2} + ...,
+\end{equation}
+Заменим частные производные на ковариантные, и будем использовать следующие соотношения: 
+\begin{align}
+\partial_{\lbrace\gamma_1} \Gamma_{\gamma_2\rbrace \alpha}^{{~}{~}{~} {~}\beta}(x_0)  = - \frac{1}{3} R_{\alpha\lbrace \gamma_1 \gamma_2 \rbrace}^{{~}{~}{~}{~}{~}{~}{~}\beta}(x_0), \\
+\partial^2_{\lbrace \gamma_1 \gamma_2} \Gamma_{\gamma_3 \rbrace_\alpha}{~}^\beta (x_0) = -\frac{1}{2} \nabla_{\lbrace \gamma_1} R_{\alpha \gamma_2 \gamma_3\rbrace}{~}^\beta (x_0) 
+ \end{align}
+ В качестве такого тензора выберем метрику, тогда, исключая ковариантные производные, которые занулятся для метрики получим:
+ \begin{equation}
+ g_{\alpha \beta} = \eta_{\alpha \beta} - \frac{1}{3} R_{\alpha \gamma_1 \gamma_2 \beta}(x_0) y^{\gamma_1} y^{\gamma_2} - \frac{1}{6}\nabla_{\gamma_1} R_{\alpha \gamma_2 \gamma_3 \beta}(x_0) y^{\gamma_1} y^{\gamma_2} y^{\gamma_3}...
+ \end{equation}
+ u
+\textbf{Метрическая связность в ОТО.} 
+\par  
+Из уравнения $\grad_\lambda g_{\mu \nu} = 0 $ можно получить символы Кристоффеля $\Gamma _{\mu \nu}^{{~}{~} \lambda}$.
+Полезные выражения:
+\begin{equation}
+\grad_\mu A^\mu  = -\frac{1}{\sqrt{-g}} \partial_\mu (A^\mu \sqrt{-g});
+\end{equation}
+\begin{equation}
+g^{\nu \lambda} \grad_{\nu} \grad_{\lambda} \phi = \frac{1}{\sqrt{-g}} \partial_\mu (g^{\mu \nu} \partial_\nu(\phi\sqrt{-g}))
+\end{equation}
+\begin{equation}
+\Gamma _{\mu \nu}^{{~}{~} \lambda} g^{\mu \nu} = -\frac{1}{\sqrt{-g}}  \partial_\nu (\sqrt{-g} g^{\nu \lambda},
+\end{equation}
+\begin{equation}
+\text{для антисимметричного:} \grad_\mu F^{\nu \mu} =  \frac{1}{\sqrt{-g}} \partial_\mu(\sqrt{-g} F^{\mu \nu})
+\end{equation}
+\begin{equation}
+\grad_\nu G^{\mu \nu} = 0, {~} G^{\mu \nu} = R^{\mu \nu} - \frac{1}{2} g^{\mu \nu} R, {~} R_{\mu \nu} = R^{\lambda}_{{~} \mu \nu \lambda}, {~} R = R_{\mu \nu} g^{\mu \nu}
+\end{equation}
+\begin{equation}
+R_{\mu \nu \lambda \tau} = R_{\lambda \tau \ mu \nu} = -R_{\nu \mu \lambda \tau} = - R_{\mu \nu \tau \lambda}, {~} R_{\mu \lbrace\nu \lambda \tau \rbrace} = 0, {~} \lbrace...\rbrace - \text{цикл. перестановка}
+\end{equation}
+Из этих уравнений можно получить, что для $R_{\mu \nu \lambda \tau} $:$ {~} \text{dof} =20$.
+Тензор кривизны можно записать с помощью тензора кривизны Вейля $ C^{\mu \nu}_{{~}{~} \lambda \tau }$, где $ C^{\mu \nu}_{{~}{~} \mu \tau } =0 {~} + \text{свойства тензора кривизны}$ : 
+\begin{equation}
+ R^{\mu \nu}_{{~}{~} \lambda \tau } =  C^{\mu \nu}_{{~}{~} \lambda \tau } + 2 \delta^{(\mu}_{[\lambda} R^{\nu)}_{\tau]} - \frac{1}{3} \delta^{\mu}_{[\lambda} \delta^{\nu}_{\tau]}.
+\end{equation}
+Уравнения Эйнштейна: $G_{\mu \nu} = 8 \pi G T_{\mu \nu} = \frac{\kappa^2}{2} T_{\mu \nu}.$
+\par 
+Тождества Бианки для $G_{\mu \nu}$ :$\grad_\nu G^{\mu \nu} = 0 \Leftrightarrow \grad_\nu T^{\mu \nu} = 0$. 
+\begin{align}
+\grad_\nu G^{\mu \nu} = \partial_\nu G^{\mu \nu} + \Gamma^\mu_{{~} \lambda \nu} G^{\lambda \nu} + \Gamma^\nu_{ {~} \lambda \nu} G^{\mu \lambda}. //
+\partial_0 G^{\mu 0} = - \partial_i G^{\mu i} -\Gamma^\mu_{{~} \lambda \nu} G^{\lambda \nu} - \Gamma^\nu_{ {~} \lambda \nu} G^{\mu \lambda}
+\end{align}
+Правая часть сожержит производные $\partial_0$ не выше двух, поэтому $G^{\mu 0} $ не содержит $\partial^2_0$. Таким образом из 10 уравнений Эйнштейна: 6 -- динамических (второго порядка) и 4 -- связи ( первого порядка по $\partial_0$).
+\par 
+В силу алгебраических связей $G^{\mu \nu}$ и $T^{\mu \nu} $ уравнения Эйнштейна "определяют" хотя бы чать уравениний движения материальной системы.  Иногда даже полностью, например: движение точечной частицы в гравитационном поле -- это уравнения геодезической:
+\begin{equation}
+\dv[2]{x^\mu}{\tau} + \Gamma^\mu_{{~}\nu \lambda} \dv{x^\nu}{\tau}\dv{x^\lambda}{\tau} = 0 \Leftrightarrow \grad_\nu \overset{P}{T^{\mu \nu}},
+\end{equation}
+где $\overset{P}{T^{\mu \nu}}= m\int \dot{x^\mu} \dot{x^\nu} \frac{\delta^4(x-x(\tau))}{\sqrt{-g}} d\tau $ --- ТЭИ точечной частицы.  Аналогично можно показать и для скалярного поля: $\overset{\phi}{T_{\mu \nu}} = \partial_\mu \phi \partial_\nu \phi - g_{\mu \nu} \partial_\lambda \phi \partial^\lambda \phi / 2$
+\par
+\textbf{Задача 6.4}  Показать, что $\Box \phi \Leftrightarrow \grad_\nu \overset{\phi}{T^{\mu \nu}}$
+\par 
+\textit{Решение} Для скалярного поля ковариантная производная совпадает с частной, поэтому получим:
+\begin{align}
+0 = \nabla_\nu T^{\mu \nu} = \nabla_\nu \nabla^\mu \phi \nabla^\nu \phi + \nabla^\mu \phi \nabla_\nu  \nabla^\nu \phi - g^{\nu \mu} \nabla_\nu \nabla_\lambda \phi \nabla^\lambda \phi
+\end{align}
+Первый и последний члены сокращаются, а остается второй : $\nabla^\mu \phi \nabla_\nu  \nabla^\nu \phi = 0$. Такое возможно, только если $\Box\phi = 0$.
+\par
+\textbf{Общая ковариантность.} Действие и уравнения движения не изменяют вида при общих координатных преобразованиях, если тензор преобразуется по правилам дифференциальной геометрии. Общую структуру действия гравитирующей системы можно записать в следующим виде:
+\begin{equation}
+S[ \phi, g_{\mu \nu}] = S_g[g_{\mu \nu}] + S_m [ \phi, g_{\mu \nu}]
+\end{equation}
+В супергравитации и других теориях  целесооразно $\Gamma_{\mu \nu}^{\lambda}$ рассматривать как независимую переменну.
+Тогда:
+\begin{equation}
+S[ \phi, g_{\mu \nu}, \Gamma_{\mu \nu}^{\lambda}] = S_g[g_{\mu \nu}, \Gamma_{\mu \nu}^{\lambda}] + S_m [ \phi, g_{\mu \nu}, \Gamma_{\mu \nu}^{\lambda}]
+\end{equation} ---формализм Палатини. Вариация такого действия может приводить к кручению и несимметричности. Принцип Эйлера требует, чтобы $S_m [ \phi, g_{\mu \nu}]$  получалось переписыванием действия в пространстве Минковского в криволинейных координатах, например: 
+\begin{equation}
+\int \pdv{\phi}{\xi^a}\pdv{\phi}{\xi^b} \eta^{ab} d^4 \xi \longrightarrow \int \pdv{\phi}{x^\mu} \pdv{\phi}{x^\nu} g^{\mu \nu} \sqrt{-g} d^4 x \equiv \int \grad^\mu \phi \grad_\mu \phi \sqrt{-g} d^4 x.
+\end{equation}
+Соотвествующие уравнения Эйлера-Лагранжа :$ \frac{1}{\sqrt{-g}} \partial_\mu(\sqrt{-g} g^{\mu \nu} \partial_{\nu} \phi) = 0 = \grad^\mu \partial_\mu (\sqrt{-g} \phi).$
+Ни действие, ни уравнения поля не содержат тензор кривизны, что является манифестацией принципа Эйлера. Такая связь материи является \textit{минимальной}. Примеры неминимальной связи: $ S_1 = \lambda \int R \phi^2 \sqrt{-g} d^4 x ; {~} S_2 = \mu \int G^{\mu \nu} \partial_\mu \phi \partial_\nu \phi \sqrt{-g} d^4 x.$ 
+\par
+\textbf{Задача 6.5} Записать уравнения Эйнштейна с материей $ S_1, S_2$.
+\par 
+\textit{Решение} Получим метричесике ТЭИ:
+\begin{align}
+T_1^{\mu \nu} = -2 \lambda R^{\mu \nu} \phi^2 \sqrt{-g} \\
+T_2^{\mu \nu} = R \partial^\mu \phi \partial^\nu \phi \sqrt{-g} + g^{\alpha \beta} R^{\mu \nu} \partial_\alpha \phi \partial_\beta \phi
+\end{align}
+Подставляя эти выражения в уравнения Эйнштейна получим искомые выражения.
+\par
+Для поля Максвелла  минимальное действие :
+\begin{equation}
+S = -\frac{1}{4} \int F^{\mu \nu} F_{\mu \nu}  \sqrt{-g} d^4 x,
+\end{equation}
+где $F_{\mu \nu} = \partial_\mu A_\nu - \partial_\nu A_\mu = \grad_\mu A_\nu - \grad_\nu A_\mu$(для гравитации без кручения).
+\par 
+\textit{Замечание} В гравитационном поле принято считать, что $A_\mu$ с нижним индексом не зависит от метрики.
+\par 
+Уравнения для поля: 
+\begin{equation}
+\grad_\nu F^{\mu \nu} = \frac{1}{\sqrt{-g}} \partial_\nu (F^{\mu \nu} \sqrt{-g}) = 0
+\end{equation}
+еще про максвелла (??????????????)
+
+\par 
+\subsection{Геодезические кривые.}
+
+(???)
+\subsection{Материя}
+Действия для точечной частицы:
+\begin{equation}
+S_{\text{лл}} (x) = -m \int_{WL} ds = - m \int_{WL} \sqrt{g_{\mu \nu} dx^\mu dx^\nu} = - m \int \sqrt{g_{\mu \nu} {\dot{x^\mu} \dot{x^\nu}}} \frac{\delta^4 ( x - x(\tau))}{\sqrt{-g}} d\tau.
+\end{equation}
+Метрический ТЭИ: $ \frac{1}{2} \sqrt{-g} T^{\mu \nu} = - \fdv{S}{g_{\mu \nu}}.$
+
+\begin{equation}
+T^{\mu \nu} = m \int_{WL} \frac{\delta^4 ( x - x(\tau))}{\sqrt{-g}} \dot{x^\mu} \dot{x^\nu} d\tau=
+\end{equation}
+используя $ \dot{x^0} = \dv{x^0}{\tau}, {~} x^0 |_{WL} = t$, получаем:
+\begin{equation}
+m \frac{\dot{x^\mu} \dot{x^\nu}}{\dot{x^0}} \delta^3( \vec{r} - \vec{r(t)})
+\end{equation}
+\par
+Подход Полякова. Рассмотрим действие следующего вида:
+\begin{equation}
+S_{Pol}(x, e) = - \frac{1}{2} \int ( e g_{\mu \nu}(x) \dot{x^\mu} \dot{x^\nu} + \frac{m^2}{e}) d\tau
+\end{equation}
+Это действие подоходит для условия $m=0$. Вариация по $e$ дает условие связи: $ g_{\mu \nu}(x) \dot{x^\mu} \dot{x^\nu} = \frac{m^2}{e^2}$. Подстановка $e = m/ \sqrt{g_{\mu \nu}(x) \dot{x^\mu} \dot{x^\nu}} $ возвращает действие Ландау-Лившица $S_{\text{лл}}$
+\par
+Можно обобщить эту конструкцию. В $D$-мерном пространстве можно вести действие не для точки($0$-брану), а гиперповерхности, тогда действие  будет иметь следющий вид:
+\begin{equation}
+S_{p} (x, h) = -\frac{\mu_p}{2} \int (g_{\mu \nu} \pdv{x^\mu}{\sigma^a} \pdv{x^\nu}{\sigma^b} h^{ab} - (p-1)) \sqrt{-h} d^{p+1} \sigma,
+\end{equation}
+где $h_{ab}$ -- это лагранжевы множители. Метрический тензор ТЭИ:
+\begin{equation}
+T^{\alpha \beta} = \frac{\mu_p}{2} \sqrt{-h}\lbrace(\partial_a X^{\alpha} \partial_b X^{\beta} h^{ab}) - g^{\alpha \beta}(\partial_a X_\nu \partial_b X^\nu h^{ab} - (p-1)) \rbrace
+\end{equation}
+Вариация по $h_{ab}$ :
+\begin{equation}
+\partial_c X \cdot \partial_d X  - \frac{1}{2}( \partial_a X \cdot \partial_b X h^{ab} - (p-1)) h_{cd} = 0
+\end{equation}
+Можно положить(?) $h_{ab} =  \partial_a X \cdot \partial_b \equiv \gamma_{ab}$ -- индуцированная метрика на $V_p$. Если это так, то можно прямой подстановкой проверить, что $h_{ab} h^{ab} = p+1$. 
+\par 
+Можно ввести эквивалентное действию Полякова действие Намбу-Гото, которое получается подстоновкой $h_{ab}$ :
+\begin{equation}
+S_{NG} = - \mu_p \int \sqrt{-det(h_{ab})} d^{p+1} \sigma
+\end{equation}
+Уравненися Лагранжа- Эйлера:
+\begin{equation}
+\frac{1}{\sqrt{-h}} \partial_a (\sqrt{-h} h^ab g_{\mu \nu} \partial_b X^\nu) =\frac{1}{2} g_{\nu \lambda, \mu} \partial_a X^\nu \partial_b X^\lambda h^{ab},
+\end{equation}
+\begin{equation}
+\frac{1}{\sqrt{-h}} \partial_a (\sqrt{-h} h^ab  \partial_b X^\nu) + \Gamma^{\mu}_{{~} \nu \lambda} \partial_a X^\nu \partial_b X^\lambda h^{ab} 
+\end{equation}
+Система зарядов $e_k$, $k=1..N$ и самосогласованого поля $A_\mu$:
+\begin{align}
+S  = S_m + S_{int} +S_F = - \sum_k m_k \int \sqrt{g_{\mu \nu} \dot{x^\mu_k} \dot{x^\nu_k}} d\tau_k - \\
+  \nonumber
+- \int j^\mu A_\mu \sqrt{-g} d^4x - \frac{1}{4} \int F_{\mu \nu} F^{\mu \nu} \sqrt{-g} d^4 x,
+\end{align}
+где $j^\mu = \sum_k e_k \dot{x_k^\mu} \frac{\delta^4(x - x(\tau))}{\sqrt{-g}} d\tau_k$ Можно получить уравнения движения для полей:
+\par 
+$\delta x^\mu$: 
+\begin{equation}
+\label{1}
+m_k \frac{D \dot{x^\mu_k}}{d\tau_k} = e_k F^\mu_\nu \dot{x^\nu_k},  {~} (\frac{D \dot{x^\mu_k}}{d\tau_k} \equiv \dv{u^\mu}{\tau} + \Gamma^{\mu}_{{~} \nu \lambda} u^{\nu} u^{\lambda})
+\end{equation}
+$\delta A_\mu$ :
+\begin{equation}
+\nabla_\nu F^{\mu \nu} = \frac{1}{\sqrt{-g}} (F^{\mu \nu} \sqrt{-g}) = - j^\mu  \label{2}
+\end{equation}
+$\delta g_{\mu \nu}:$
+\begin{equation}
+T^{\mu \nu} =\sum_k m_k \int\frac{\dot{x^\mu_k} \dot{x^\nu_k} \delta^4(x - x(\tau))}{\sqrt{-g}} d\tau_k + F^{\mu \lambda} F_\lambda^\nu  - \frac{1}{4} F_{\alpha \beta} F^{\alpha \beta}
+\end{equation}
+\textbf{Задача 6.6} Показать, что $\nabla_\nu T^{\mu \nu}$, используя (\ref{1}), (\ref{2})
+\par 
+\textit{Замечание}: Взаимодействие $\int j^\mu A_\mu \sqrt{-g} d^4x $ не завсит от метрики, поэтому этот член действия не даст вклада в метрический ТЭИ. Существенно, что в качестве "координат" максвелловского поля выбирается ковектор $A_\mu$
+
+
+
+\end{document}
